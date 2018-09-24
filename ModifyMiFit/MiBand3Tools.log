@@ -1,0 +1,7 @@
+기존에 있던 job 디렉터리를 job.old_8240-17121(으)로 이동합니다.
+[init.sh] job 디렉터리를 초기화하였습니다.
+[get_apktool.sh] Apktool(을)를 다운로드하였습니다.
+[get_pup.sh] pup(을)를 다운로드하였습니다.
+[get_mi_fit.sh] Mi 피트를 다운로드하였습니다.
+[auto.sh] 진행 중에 실패하여 종료합니다.
+버그라고 생각될 경우 기록(MiBand3Tools.log)과 함께 GitHub에서 이슈를 생성하세요.
