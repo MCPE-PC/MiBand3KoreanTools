@@ -28,7 +28,5 @@ fi
  ./sign_mi_fit.sh $2 &&\
  ./finish.sh) || exception
 
-mv MiBand3Tools.tmp.log MiBand3Tools.log
-
 # 모든 과정이 끝났을 때 반드시 파일의 이름과 함께 안내해야 합니다.
 echo "[$FILENAME] 모든 과정을 성공하였습니다. 결과물은 dist 디렉터리에 있습니다."
