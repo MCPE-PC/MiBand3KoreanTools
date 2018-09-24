@@ -20,12 +20,12 @@ fi
 if [[ ! -x apktool ]] || [[ ! -x apktool.jar ]]; then
 	exception 'Apktool(을)를 찾을 수 없거나 실행 권한이 없습니다. `./get_apktool.sh`(을)를 실행한 적이 있는지 확인해주세요.'
 fi
-if [[ ! -x './jq' ]]; then
-	exception 'jq(을)를 찾을 수 없거나 실행 권한이 없습니다. `./get_jq.sh`(을)를 실행한 적이 있는지 확인해주세요.'
-fi
-if [[ ! -r './original.apk' ]]; then
-	exception 'Mi 피트를 찾을 수 없거나 읽기 권한이 없습니다. `./get_mi_fit.sh`(을)를 실행한 적이 있는지 확인해주세요.'
-fi
+# if [[ ! -x './jq' ]]; then
+# 	exception 'jq(을)를 찾을 수 없거나 실행 권한이 없습니다. `./get_jq.sh`(을)를 실행한 적이 있는지 확인해주세요.'
+# fi
+# if [[ ! -r './original.apk' ]]; then
+# 	exception 'Mi 피트를 찾을 수 없거나 읽기 권한이 없습니다. `./get_mi_fit.sh`(을)를 실행한 적이 있는지 확인해주세요.'
+# fi
 
 # TODO: jq(을)를 사용하여 firmwares.json도 변조합니다. 그렇게 할 경우 미밴드 3 외의 장치의 최신 펌웨어와 동시 사용이 가능합니다.
 (./apktool d original.apk -q && rm ./original/assets/Mili_wuhan.* && cp ../../MiBand3Firmwares/$FIRMWARE_VERSION/Mili_wuhan.* './original/assets' &&\

@@ -3,10 +3,8 @@
 cd -P `dirname "${BASH_SOURCE[0]}"`
 FILENAME=`basename "$0"`
 function exception {
-	echo "[$FILENAME] 진행 중에 실패하여 종료합니다." > MiBand3Tools.log && cat MiBand3Tools.log && cat MiBand3Tools.log >> MiBand3Tools.tmp.log && rm MiBand3Tools.log
-	echo '버그라고 생각될 경우 기록(MiBand3Tools.log)과 함께 GitHub에서 이슈를 생성하세요.'\
-	 > MiBand3Tools.log && cat MiBand3Tools.log && cat MiBand3Tools.log >> MiBand3Tools.tmp.log && rm MiBand3Tools.log
-	mv MiBand3Tools.tmp.log MiBand3Tools.log
+	echo "[$FILENAME] 진행 중에 실패하여 종료합니다."
+	echo '버그라고 생각될 경우 터미널 스크린샷과 함께 GitHub에서 이슈를 생성하세요.'
 	exit 1
 }
 
@@ -22,13 +20,13 @@ if [[ ${#NOT_INSTALLED[@]} -gt 0 ]]; then
 	exception
 fi
 
-(./init.sh > MiBand3Tools.log && cat MiBand3Tools.log && mv MiBand3Tools.log MiBand3Tools.tmp.log &&\
- ./get_apktool.sh > MiBand3Tools.log && cat MiBand3Tools.log && cat MiBand3Tools.log >> MiBand3Tools.tmp.log && rm MiBand3Tools.log &&\
- ./get_pup.sh > MiBand3Tools.log && cat MiBand3Tools.log && cat MiBand3Tools.log >> MiBand3Tools.tmp.log && rm MiBand3Tools.log &&\
- ./get_mi_fit.sh $1 > MiBand3Tools.log && cat MiBand3Tools.log && cat MiBand3Tools.log >> MiBand3Tools.tmp.log && rm MiBand3Tools.log &&\
- ./rebuild_mi_fit.sh > MiBand3Tools.log && cat MiBand3Tools.log && cat MiBand3Tools.log >> MiBand3Tools.tmp.log && rm MiBand3Tools.log &&\
- ./sign_mi_fit.sh $2 > MiBand3Tools.log && cat MiBand3Tools.log && cat MiBand3Tools.log >> MiBand3Tools.tmp.log && rm MiBand3Tools.log &&\
- ./finish.sh > MiBand3Tools.log && cat MiBand3Tools.log && cat MiBand3Tools.log >> MiBand3Tools.tmp.log && rm MiBand3Tools.log) || exception
+(./init.sh &&\
+ ./get_apktool.sh &&\
+ ./get_pup.sh &&\
+ ./get_mi_fit.sh $1 &&\
+ ./rebuild_mi_fit.sh &&\
+ ./sign_mi_fit.sh $2 &&\
+ ./finish.sh) || exception
 
 mv MiBand3Tools.tmp.log MiBand3Tools.log
 
